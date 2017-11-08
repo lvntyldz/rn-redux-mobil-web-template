@@ -1,0 +1,3 @@
+export const ADD_DATA_TO_LIST = 'ADD_DATA_TO_LIST';
+export const DELETE_DATA_FROM_LIST = 'DELETE_DATA_FROM_LIST';
+export const CLEAR_ALL_DATA = 'CLEAR_ALL_DATA';
