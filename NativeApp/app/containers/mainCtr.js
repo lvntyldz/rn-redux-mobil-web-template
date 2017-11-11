@@ -9,12 +9,13 @@ import {bindActionCreators} from 'redux';
 //custom
 import * as Actions from '../actions';
 import Wrapper from '../components/wrapper.js';
+import  {ENUMS} from '../util/enums.js';
 
 export class MainContainer extends Component {
 
   render() {
     const {state, actions} = this.props;
-    return (<Wrapper  states={state} {...actions}/>); //return
+    return (<Wrapper  enums={ENUMS} states={state}  {...actions}/>); //return
   } //render
 
 } //MainContainer

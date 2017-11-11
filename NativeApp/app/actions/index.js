@@ -1,13 +1,26 @@
-import * as ActionTypes from './actionTypes1.js';
+import * as ActionTypes from './actionTypes.js';
 
-export const addDataToList = (text) => {
-
-  const action = {type: ActionTypes.ADD_DATA_TO_LIST,text };
+export const addUser = (text) => {
+  const action = {type: ActionTypes.ADD_USER,text };
   return action;
+} //addUser
 
-} //addDataToList
-
-export const deleteDataFromList = (id) => {
-  const action = {type: ActionTypes.DELETE_DATA_FROM_LIST,id};
+export const deleteUser = (id) => {
+  const action = {type: ActionTypes.DELETE_USER,id};
   return action;
-} //addDataToList
+} //deleteUser
+
+export const addProduct = (text) => {
+  const action = {type: ActionTypes.ADD_PRODUCT,text };
+  return action;
+} //addProduct
+
+export const deleteProduct = (id) => {
+  const action = {type: ActionTypes.DELETE_PRODUCT,id};
+  return action;
+} //deleteProduct
+
+export const setActivePage = (page) => {
+  const action = {type: ActionTypes.SET_ACTIVE_PAGE,page};
+  return action;
+} //setActivePage
