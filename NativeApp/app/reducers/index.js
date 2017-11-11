@@ -1,52 +1,45 @@
-import * as ActionTypes  from '../actions/ActionTypes.js';
+import * as types from '../actions/actionTypes1.js';
 
-const data = (action) => {
-
-  console.warn("in data ::: ", data);
+const addData = (state, action) => {
   let {text} = action;
-  return {id: Math.random(), text} //return
+  let {data} = state;
+  data.push({id: Math.random(), text});
+  return data; //return
+} //addData
 
-} //data
+const removeDataById = (state = {
+  data: []
+}, id) => {
+  const mainState = state.data.filter(data => data.id !== id);
+  return mainState;
+} //removeDataById
 
-const removeById = (state = [], id) => {
+const initialState = {
+  data: []
+};
 
-  console.log("reducer-->removeById-->data ", data);
-
-  const datas = state.filter(data => data.id !== id);
-
-  console.log("reducer-->removeById-->return  ", datas);
-
-  return datas;
-} //removeById
-
-const datas = (state = [], action) => {
-
-  console.log("reducer-->datas-->state ", state);
-  console.log("reducer-->datas-->action ", action);
-
-  let datas = null;
+export  function mainState(state = initialState, action = {}) {
 
   switch (action.type) {
 
-    case ActionTypes.ADD_DATA_TO_LIST:
-      datas = [
+    case types.ADD_DATA_TO_LIST:
+      return {
         ...state,
-        data(action)
-      ];
-      console.log("reducer-->datas-->ADD_DATA_TO_LIST-->return ", datas);
-      return datas;
+        data: addData(state, action)
+      };
 
-    case ActionTypes.DELETE_DATA_FROM_LIST:
-      datas = removeById(state, action.id);
-      console.log("reducer-->datas-->DELETE_DATA_FROM_LIST-->return ", datas);
-      return datas;
+    //========== ========== ========== ==========
+
+    case types.DELETE_DATA_FROM_LIST:
+      return {
+        ...state,
+        data: removeDataById(state, action.id)
+      };
+
+    //========== ========== ========== ==========
 
     default:
-      console.log("reducer-->datas-->DEFAULT-->return ", state);
       return state;
 
   } //switch
-
-} //datas
-
-export default datas;
+}

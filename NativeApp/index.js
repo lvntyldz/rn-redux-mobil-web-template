@@ -1,7 +1,7 @@
 import {AppRegistry} from 'react-native';
-import App from './app/index.js'
+import MainProvider from './app/containers/mainPvd.js'
 
-AppRegistry.registerComponent('NativeApp', () => App);
+AppRegistry.registerComponent('NativeApp', () => MainProvider);
 
 if (window.document) {
 

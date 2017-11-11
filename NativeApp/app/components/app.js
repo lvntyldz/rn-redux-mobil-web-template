@@ -2,14 +2,12 @@ import React, {Component} from 'react';
 import {StyleSheet, Text, View, Button, TextInput} from 'react-native';
 
 import {connect} from 'react-redux';
-import {addDataToList, deleteDataFromList} from '../actions';
+//import {addDataToList, deleteDataFromList} from '../actions';
 
-export class App extends Component {
+export default class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      text: ''
-    };
+    this.state = {text:''};
   } //constructor
 
   handleClickAddDataBtn() {
@@ -25,7 +23,7 @@ export class App extends Component {
     let self = this;
     let content = [];
 
-    self.props.datas.map(function(v, k) {
+    self.props.states.mainState.data.map(function(v, k) {
 
       content.push((
             <View  key={v.id} style={{flex: 0.1,margin: 2, flexDirection:'row'}}>
@@ -33,6 +31,7 @@ export class App extends Component {
               <View style={{width:200,height:33, padding:5,backgroundColor: '#F3F3F3'}}><Text>{v.text}</Text></View>
 
               <View style={{width:30,height:30}}>
+
                 <Button
                   onPress={() => {
                     self.handleClickRemoveDataBtn(v.id)
@@ -41,6 +40,7 @@ export class App extends Component {
                   color="#D50000"
                   width={20}
                 />
+
               </View>
 
             </View>
@@ -88,19 +88,3 @@ export class App extends Component {
   } //render
 
 } //App
-
-function mapStateToProps(state) {
-
-  console.log("app-->mapStateToProps-->state ",state);
-
-  let returnVal = {
-    datas:state
-  };
-
-  console.log("app-->mapStateToProps-->return  ",state);
-
-  return returnVal;
-
-}//mapStateToProps
-
-export default connect(mapStateToProps,{addDataToList,deleteDataFromList})(App);
