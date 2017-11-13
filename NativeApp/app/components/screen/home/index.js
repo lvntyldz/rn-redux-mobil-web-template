@@ -6,11 +6,9 @@ export default class Home extends Component {
   render() {
 
     return (
-
-      <View style={{flex: 1, margin: 100}}>
+      <View style={{flex: 1,borderWidth:1,justifyContent: 'center',alignItems: 'center'}}>
         <Text>HOME</Text>
       </View>
-
     ); //return
 
   } //render

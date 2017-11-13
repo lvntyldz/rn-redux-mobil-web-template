@@ -6,7 +6,7 @@ This repo contains  simple react-native project, implementation of react-native-
 
 ## Sample Screen Shot
 
-![alt text](https://raw.githubusercontent.com/lvntyldz/_RN_RDX_MBL_WB_TEMPLATE/master/resources/images/ScreenShot1.png
+![alt text](https://raw.githubusercontent.com/lvntyldz/_RN_RDX_MBL_WB_TEMPLATE/master/resources/images/ScreenShot2.png
 )
 
 
@@ -27,7 +27,7 @@ $ npm install && react-native run-ios
 
 ## For Android
 ```
-$ npm install &&  react-native run-android
+$ npm install && rnpm link  && react-native run-android
 ```
 
 ## For Web (run below commands and visit http://localhost:8080/ )

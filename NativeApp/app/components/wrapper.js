@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
-import {View,Button} from 'react-native';
+import {View,StyleSheet,Button,TouchableHighlight} from 'react-native';
+
+//3rd
+import Icon from 'react-native-vector-icons/dist/FontAwesome';
 
 //custom
 import User from './screen/user';
@@ -19,42 +22,28 @@ export default class Wrapper extends Component {
       footer:{},
     };//pages
 
-
         headerHtml = (
-          <View  style={{ flexDirection:'row'}}>
+          <View  style={{ flexDirection:'row',paddingTop:20,justifyContent: 'center',alignItems: 'center'}}>
 
-            <View  style={{flex: 1,margin:1,padding:0}}>
-              <Button
-                onPress={()=>{self.props.setActivePage(self.props.enums.SCREEN.HOME)}}
-                title="home"
-              />
-            </View>
+            <TouchableHighlight style={s.button} onPress={()=>{self.props.setActivePage(self.props.enums.SCREEN.HOME)}} >
+              <Icon name="home" size={30} color="#900" />
+            </TouchableHighlight>
 
-            <View  style={{flex: 1,margin:1,padding:0}}>
-              <Button
-                onPress={()=>{self.props.setActivePage(self.props.enums.SCREEN.LOGIN)}}
-                title="login"
-              />
-            </View>
+            <TouchableHighlight style={s.button} onPress={()=>{self.props.setActivePage(self.props.enums.SCREEN.LOGIN)}} >
+              <Icon name="lock" size={30} color="#900" />
+            </TouchableHighlight>
 
-            <View  style={{flex: 1,margin:1,padding:0}}>
-              <Button
-                title="user"
-                onPress={()=>{self.props.setActivePage(self.props.enums.SCREEN.USER)}}
-              />
-            </View>
+            <TouchableHighlight style={s.button} onPress={()=>{self.props.setActivePage(self.props.enums.SCREEN.USER)}} >
+              <Icon name="user" size={30} color="#900" />
+            </TouchableHighlight>
 
-            <View  style={{flex: 1,margin:1,padding:0}}>
-              <Button
-                onPress={()=>{self.props.setActivePage(self.props.enums.SCREEN.PRODUCT)}}
-                title="prod"
-              />
-            </View>
+            <TouchableHighlight style={s.button} onPress={()=>{self.props.setActivePage(self.props.enums.SCREEN.PRODUCT)}} >
+              <Icon name="shopping-bag" size={30} color="#900" />
+            </TouchableHighlight>
 
           </View>
 
         );//headerHtml
-
 
     pages.header[self.props.enums.SCREEN.USER] = headerHtml;
     pages.body[self.props.enums.SCREEN.USER] = (<User {...this.props}/>);
@@ -64,11 +53,9 @@ export default class Wrapper extends Component {
     pages.body[self.props.enums.SCREEN.PRODUCT] = (<Product {...this.props}/>);
     pages.footer[self.props.enums.SCREEN.PRODUCT] = (null);
 
-
     pages.header[self.props.enums.SCREEN.LOGIN] = headerHtml;
     pages.body[self.props.enums.SCREEN.LOGIN] = (<Login {...this.props}/>);
     pages.footer[self.props.enums.SCREEN.LOGIN] = (null);
-
 
     pages.header[self.props.enums.SCREEN.HOME] = headerHtml;
     pages.body[self.props.enums.SCREEN.HOME] = (<Home {...this.props}/>);
@@ -85,3 +72,11 @@ export default class Wrapper extends Component {
   } //render
 
 } //Wrapper
+
+const s = StyleSheet.create({
+  button: {
+    margin:5,
+    padding:5,
+    borderWidth:1,
+  },//button
+});

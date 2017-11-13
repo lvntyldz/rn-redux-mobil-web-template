@@ -54,10 +54,9 @@ export default class User extends Component {
   render() {
 
     return (
-      <View style={{flex: 1, margin: 100}}>
+      <View style={{flex: 1,borderWidth:1,justifyContent: 'center',alignItems: 'center'}}>
 
-        <Text>USER</Text>
-        <View style={{flex: 0.1,margin: 2, flexDirection:'row'}}>
+        <View style={{flex: 0.1,margin: 2,  paddingTop:20, flexDirection:'row'}}>
 
           <TextInput
             style={{
@@ -66,6 +65,7 @@ export default class User extends Component {
               width:200,
               height:32
             }}
+            placeholder="Name"
             onChangeText={(text) => this.setState({text})}
             value={this.state.text}
           />

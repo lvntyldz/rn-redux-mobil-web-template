@@ -27,14 +27,14 @@ export default class Product extends Component {
       content.push((
             <View  key={v.id} style={{flex: 0.1,margin: 2, flexDirection:'row'}}>
 
-              <View style={{width:200,height:33, padding:5,backgroundColor: '#F3F3F3'}}><Text>{v.text}</Text></View>
+              <View style={{width:200,height:33, padding:5,backgroundColor: '#F3F3F3'}}>
+                <Text>{v.text}</Text>
+              </View>
 
               <View style={{width:30,height:30}}>
 
                 <Button
-                  onPress={() => {
-                    self.handleClickRemoveDataBtn(v.id)
-                  }}
+                  onPress={() => {self.handleClickRemoveDataBtn(v.id)}}
                   title="X"
                   color="#D50000"
                   width={20}
@@ -54,11 +54,9 @@ export default class Product extends Component {
   render() {
 
     return (
-      <View style={{flex: 1, margin: 100}}>
+      <View style={{flex: 1,borderWidth:1,justifyContent: 'center',alignItems: 'center'}}>
 
-        <Text>PRODUCT</Text>
-
-        <View style={{flex: 0.1,margin: 2, flexDirection:'row'}}>
+        <View style={{flex: 0.1,margin: 2,  paddingTop:20, flexDirection:'row'}}>
 
           <TextInput
             style={{
@@ -69,6 +67,7 @@ export default class Product extends Component {
             }}
             onChangeText={(text) => this.setState({text})}
             value={this.state.text}
+            placeholder="Product Name"
           />
 
           <View style={{width:100,height:100}}>
