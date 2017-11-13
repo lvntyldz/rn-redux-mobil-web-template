@@ -2,8 +2,9 @@ import * as types from '../actions/actionTypes.js';
 
 const initialState = {
   page:{
-    current:"user",
-    //current:"product",
+    current:"HOME_SCREEN",
+    //current:"USER_SCREEN",
+    //current:"PRODUCT_SCREEN",
   },//page
 };//initialState
 
