@@ -22,28 +22,33 @@ export default class Wrapper extends Component {
       footer:{},
     };//pages
 
-        headerHtml = (
-          <View  style={{ flexDirection:'row',paddingTop:20,justifyContent: 'center',alignItems: 'center'}}>
 
-            <TouchableHighlight style={s.button} onPress={()=>{self.props.setActivePage(self.props.enums.SCREEN.HOME)}} >
-              <Icon name="home" size={30} color="#900" />
-            </TouchableHighlight>
+    if(self.props.states.userState.isLoggedIn!==true){
+      return (<Login {...this.props}/>);
+    }//fi
 
-            <TouchableHighlight style={s.button} onPress={()=>{self.props.setActivePage(self.props.enums.SCREEN.LOGIN)}} >
-              <Icon name="lock" size={30} color="#900" />
-            </TouchableHighlight>
+    headerHtml = (
+      <View  style={{ flexDirection:'row',paddingTop:20,justifyContent: 'center',alignItems: 'center'}}>
 
-            <TouchableHighlight style={s.button} onPress={()=>{self.props.setActivePage(self.props.enums.SCREEN.USER)}} >
-              <Icon name="user" size={30} color="#900" />
-            </TouchableHighlight>
+        <TouchableHighlight style={s.button} onPress={()=>{self.props.setActivePage(self.props.enums.SCREEN.HOME)}} >
+          <Icon name="home" size={30} color="#900" />
+        </TouchableHighlight>
 
-            <TouchableHighlight style={s.button} onPress={()=>{self.props.setActivePage(self.props.enums.SCREEN.PRODUCT)}} >
-              <Icon name="shopping-bag" size={30} color="#900" />
-            </TouchableHighlight>
+        <TouchableHighlight style={s.button} onPress={()=>{self.props.setActivePage(self.props.enums.SCREEN.LOGIN)}} >
+          <Icon name="lock" size={30} color="#900" />
+        </TouchableHighlight>
 
-          </View>
+        <TouchableHighlight style={s.button} onPress={()=>{self.props.setActivePage(self.props.enums.SCREEN.USER)}} >
+          <Icon name="user" size={30} color="#900" />
+        </TouchableHighlight>
 
-        );//headerHtml
+        <TouchableHighlight style={s.button} onPress={()=>{self.props.setActivePage(self.props.enums.SCREEN.PRODUCT)}} >
+          <Icon name="shopping-bag" size={30} color="#900" />
+        </TouchableHighlight>
+
+      </View>
+
+    );//headerHtml
 
     pages.header[self.props.enums.SCREEN.USER] = headerHtml;
     pages.body[self.props.enums.SCREEN.USER] = (<User {...this.props}/>);

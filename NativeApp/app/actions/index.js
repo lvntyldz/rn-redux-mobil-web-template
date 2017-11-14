@@ -24,3 +24,8 @@ export const setActivePage = (page) => {
   const action = {type: ActionTypes.SET_ACTIVE_PAGE,page};
   return action;
 } //setActivePage
+
+export const setLoginStatus = (status) => {
+  const action = {type: ActionTypes.SET_LOGIN_STATUS,status};
+  return action;
+} //setLoginStatus

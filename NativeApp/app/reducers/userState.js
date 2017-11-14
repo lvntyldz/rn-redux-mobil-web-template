@@ -12,7 +12,16 @@ const removeUserById = (state = {users: []}, id) => {
   return mainState;
 } //removeUserById
 
-const initialState = {users: []};//initialState
+
+const setLoginStatus = (action) => {
+  return action.status; //return
+} //addUser
+
+
+const initialState = {
+  isLoggedIn:false,
+  users: []
+};//initialState
 
 export default function userState(state = initialState, action = {}) {
 
@@ -30,6 +39,13 @@ export default function userState(state = initialState, action = {}) {
         return {
           ...state,
           users: removeUserById(state, action.id)
+        };//return
+
+      //========== ========== ========== ==========
+      case types.SET_LOGIN_STATUS:
+        return {
+          ...state,
+          isLoggedIn: setLoginStatus(action)
         };//return
 
       //========== ========== ========== ==========

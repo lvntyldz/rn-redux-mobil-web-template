@@ -8,3 +8,6 @@ export const DELETE_USER = 'DELETE_USER';
 //PRODUCT
 export const ADD_PRODUCT = 'ADD_PRODUCT';
 export const DELETE_PRODUCT = 'DELETE_PRODUCT';
+
+//LOGIN
+export const SET_LOGIN_STATUS = 'SET_LOGIN_STATUS';
